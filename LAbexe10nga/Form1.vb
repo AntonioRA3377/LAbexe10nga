@@ -6,29 +6,25 @@ Public Class Form1
     Dim numbers As New List(Of Integer)
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         If File.Exists(filePath) Then
             ReadNumbersFromFile()
+        Else
+            File.Create(filePath).Dispose()
         End If
     End Sub
 
-
     Private Sub btnWrite_Click(sender As Object, e As EventArgs) Handles btnWrite.Click
         Dim num As Integer = CInt(NumInput.Value)
-
         Using sw As New StreamWriter(filePath, True)
             sw.WriteLine(num)
         End Using
-
         MessageBox.Show("Number written to file successfully!", "WRITE", MessageBoxButtons.OK, MessageBoxIcon.Information)
         NumInput.Value = 0
     End Sub
 
-
     Private Sub btnRead_Click(sender As Object, e As EventArgs) Handles btnRead.Click
         ReadNumbersFromFile()
     End Sub
-
 
     Private Sub btnSort_Click(sender As Object, e As EventArgs) Handles btnSort.Click
         If numbers.Count = 0 Then
@@ -36,10 +32,7 @@ Public Class Form1
             Return
         End If
 
-
         Dim sorted = numbers.OrderBy(Function(n) n).ToList()
-
-
         Using sw As New StreamWriter(filePath, False)
             For Each num In sorted
                 sw.WriteLine(num)
@@ -55,6 +48,15 @@ Public Class Form1
         MessageBox.Show("Numbers sorted, saved, and refreshed successfully!", "SORT", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        If File.Exists(filePath) Then
+            File.Delete(filePath)
+        End If
+        File.Create(filePath).Dispose()
+        numbers.Clear()
+        Listbox1.Items.Clear()
+        MessageBox.Show("File cleared and recreated successfully!", "CLEAR", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 
     Private Sub ReadNumbersFromFile()
         If Not File.Exists(filePath) Then

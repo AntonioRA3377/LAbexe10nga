@@ -28,13 +28,14 @@ Partial Class Form1
         Me.btnRead = New System.Windows.Forms.Button()
         Me.Listbox1 = New System.Windows.Forms.ListBox()
         Me.btnSort = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
         CType(Me.NumInput, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(79, 41)
+        Me.Label1.Location = New System.Drawing.Point(241, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(78, 13)
         Me.Label1.TabIndex = 0
@@ -42,14 +43,14 @@ Partial Class Form1
         '
         'NumInput
         '
-        Me.NumInput.Location = New System.Drawing.Point(163, 39)
+        Me.NumInput.Location = New System.Drawing.Point(325, 34)
         Me.NumInput.Name = "NumInput"
         Me.NumInput.Size = New System.Drawing.Size(155, 20)
         Me.NumInput.TabIndex = 1
         '
         'btnWrite
         '
-        Me.btnWrite.Location = New System.Drawing.Point(348, 40)
+        Me.btnWrite.Location = New System.Drawing.Point(108, 143)
         Me.btnWrite.Name = "btnWrite"
         Me.btnWrite.Size = New System.Drawing.Size(132, 31)
         Me.btnWrite.TabIndex = 2
@@ -58,7 +59,7 @@ Partial Class Form1
         '
         'btnRead
         '
-        Me.btnRead.Location = New System.Drawing.Point(108, 115)
+        Me.btnRead.Location = New System.Drawing.Point(108, 88)
         Me.btnRead.Name = "btnRead"
         Me.btnRead.Size = New System.Drawing.Size(132, 31)
         Me.btnRead.TabIndex = 3
@@ -75,18 +76,28 @@ Partial Class Form1
         '
         'btnSort
         '
-        Me.btnSort.Location = New System.Drawing.Point(348, 204)
+        Me.btnSort.Location = New System.Drawing.Point(498, 88)
         Me.btnSort.Name = "btnSort"
         Me.btnSort.Size = New System.Drawing.Size(132, 31)
         Me.btnSort.TabIndex = 5
         Me.btnSort.Text = "SORT"
         Me.btnSort.UseVisualStyleBackColor = True
         '
+        'btnClear
+        '
+        Me.btnClear.Location = New System.Drawing.Point(498, 152)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(132, 31)
+        Me.btnClear.TabIndex = 6
+        Me.btnClear.Text = "CLEAR"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnSort)
         Me.Controls.Add(Me.Listbox1)
         Me.Controls.Add(Me.btnRead)
@@ -107,4 +118,5 @@ Partial Class Form1
     Friend WithEvents btnRead As Button
     Friend WithEvents Listbox1 As ListBox
     Friend WithEvents btnSort As Button
+    Friend WithEvents btnClear As Button
 End Class
